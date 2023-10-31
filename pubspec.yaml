@@ -1,0 +1,50 @@
+name:  jameet_social_network_builder
+description: Jameet is a world based on chain paper planes to connect different applications to a decentralized core.
+
+publish_to: "JMT"
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.4 <3.0.00"
+
+
+dependencies:
+  cupertino_icons: ^1.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  bloc: ^8.1.1
+  flutter_secure_storage: ^8.0.0
+  flutter_svg: ^2.0.4
+  form_field_validator: ^1.1.0
+  google_fonts: ^4.0.3
+  http: ^0.13.5
+  image_picker: ^0.8.7+1
+  permission_handler: ^10.2.0
+  pin_code_fields: ^7.4.0
+  photo_manager: ^2.6.0
+  carousel_slider: ^4.2.1
+  shimmer: ^2.0.0
+  timeago: ^3.4.0
+  cached_network_image: ^3.2.3
+  socket_io_client: ^1.0.2
+  equatable: ^2.0.5
+  webview_flutter: ^4.4.1
+  share: ^2.0.4
+  dashed_circle: ^0.0.2
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/svg/
+    - assets/img/
