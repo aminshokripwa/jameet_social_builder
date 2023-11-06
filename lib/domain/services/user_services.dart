@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/ui/helpers/debouncer.dart';
-import 'package:jameet_social_network_builder/data/storage/secure_storage.dart';
-import 'package:jameet_social_network_builder/domain/models/response/default_response.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_followers.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_followings.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_search.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_user.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_user_search.dart';
-
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/ui/helpers/debouncer.dart';
+import 'package:jameet_social_builder/data/storage/secure_storage.dart';
+import 'package:jameet_social_builder/domain/models/response/default_response.dart';
+import 'package:jameet_social_builder/domain/models/response/response_followers.dart';
+import 'package:jameet_social_builder/domain/models/response/response_followings.dart';
+import 'package:jameet_social_builder/domain/models/response/response_search.dart';
+import 'package:jameet_social_builder/domain/models/response/response_user.dart';
+import 'package:jameet_social_builder/domain/models/response/response_user_search.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class UserServices {
 
@@ -25,7 +25,7 @@ class UserServices {
   Future<DefaultResponse> createdUser(String name, String user, String email, String password) async {
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/user'),
-      headers: { 'Accept': 'application/json' },
+      headers: { 'Accept': 'application/json' , 'server-key': LanguageJameet.serverKey },
       body: {
         'fullname' : name,
         'username' : user,
@@ -42,7 +42,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/user/get-User-By-Id'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponseUser.fromJson(jsonDecode( resp.body ));
@@ -52,7 +52,7 @@ class UserServices {
   Future<DefaultResponse> verifyEmail(String email, String code) async {
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/user/verify-email/'+ code +'/' + email),
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json', 'server-key': LanguageJameet.serverKey }
     );
 
     return DefaultResponse.fromJson( jsonDecode( resp.body ));
@@ -66,6 +66,7 @@ class UserServices {
     var request = http.MultipartRequest('PUT', Uri.parse('${Environment.urlApi}/user/update-cover'))
       ..headers['Accept'] = 'application/json'
       ..headers['jmt-token'] = token!
+      ..headers['server-key'] = LanguageJameet.serverKey
       ..files.add( await http.MultipartFile.fromPath('cover', cover));
 
     final resp = await request.send();
@@ -82,6 +83,7 @@ class UserServices {
     var request = http.MultipartRequest('PUT', Uri.parse('${Environment.urlApi}/user/update-image-profile'))
       ..headers['Accept'] = 'application/json'
       ..headers['jmt-token'] = token!
+      ..headers['server-key'] = LanguageJameet.serverKey
       ..files.add( await http.MultipartFile.fromPath('profile', profile));
 
     final resp = await request.send();
@@ -97,7 +99,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.put(Uri.parse('${Environment.urlApi}/user/update-data-profile'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
       body: {
         'user': user,
         'description': description,
@@ -115,7 +117,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.put(Uri.parse('${Environment.urlApi}/user/change-password'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
       body: {
         'currentPassword' : currentPass,
         'newPassword': newPass
@@ -131,7 +133,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.put(Uri.parse('${Environment.urlApi}/user/change-account-privacy'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey }
     );
 
     return DefaultResponse.fromJson( jsonDecode( resp.body ) );
@@ -147,7 +149,7 @@ class UserServices {
       final token = await secureStorage.readToken();
 
       final resp = await http.get(Uri.parse('${Environment.urlApi}/user/get-search-user/'+ username),
-        headers: { 'Accept': 'application/json', 'jmt-token': token! }
+        headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey }
       );
 
       final listUsers =  ResponseSearch.fromJson(jsonDecode(resp.body)).userFind;
@@ -166,7 +168,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/user/get-another-user-by-id/'+ idUser),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponseUserSearch.fromJson(jsonDecode(resp.body));
@@ -178,7 +180,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/user/add-new-friend'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
       body: { 'uidFriend': uidFriend }
     );
 
@@ -191,7 +193,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/user/accept-follower-request'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
       body: { 
         'uidFriend': uidFriend,
         'uidNotification' : uidNotification 
@@ -207,7 +209,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.delete(Uri.parse('${Environment.urlApi}/user/delete-following/' + uidUser),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
     );
 
     return DefaultResponse.fromJson(jsonDecode(resp.body));
@@ -219,7 +221,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/user/get-all-following'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
     );
 
     return ResponseFollowings.fromJson( jsonDecode(resp.body) ).followings;
@@ -231,7 +233,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/user/get-all-followers'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
     );
 
     return ResponseFollowers.fromJson( jsonDecode(resp.body) ).followers;
@@ -243,7 +245,7 @@ class UserServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.delete(Uri.parse('${Environment.urlApi}/user/delete-followers/' + uidUser),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token!, 'server-key': LanguageJameet.serverKey },
     );
 
     return DefaultResponse.fromJson(jsonDecode(resp.body));

@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/data/storage/secure_storage.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_list_chat.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_list_messages.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/data/storage/secure_storage.dart';
+import 'package:jameet_social_builder/domain/models/response/response_list_chat.dart';
+import 'package:jameet_social_builder/domain/models/response/response_list_messages.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class ChatServices {
 
@@ -14,7 +15,7 @@ class ChatServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/chat/get-list-chat-by-user'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey }
     );  
 
     return ResponseListChat.fromJson(jsonDecode(resp.body)).listChat;
@@ -26,7 +27,7 @@ class ChatServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/chat/get-all-message-by-user/'+ uid),
-      headers: { 'Accept': 'application/json', 'jmt-token' : token! }
+      headers: { 'Accept': 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponseListMessages.fromJson(jsonDecode(resp.body)).listMessage;

@@ -24,11 +24,11 @@ class AnimatedLineStory extends StatelessWidget {
         animation: animationController,
         builder: (context, _) {
           return LinearProgressIndicator(
-            value: index < selectedIndex 
-              ? 1.0 
-              : index == selectedIndex 
-              ? animationController.value 
-              : 0.0,
+            value: index < selectedIndex
+                ? 1.0
+                : index == selectedIndex
+                ? animationController.value
+                : 0.0,
             minHeight: 4,
             backgroundColor: Colors.white54,
             valueColor: const AlwaysStoppedAnimation(Colors.white),

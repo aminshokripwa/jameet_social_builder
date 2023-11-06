@@ -7,14 +7,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/domain/blocs/post/post_bloc.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/home/home_page.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/domain/blocs/post/post_bloc.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/home/home_page.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class AddPostPage extends StatefulWidget {
 

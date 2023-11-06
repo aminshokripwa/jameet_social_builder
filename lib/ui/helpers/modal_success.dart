@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 void modalSuccess(BuildContext context, String text, {required VoidCallback onPressed}){
 

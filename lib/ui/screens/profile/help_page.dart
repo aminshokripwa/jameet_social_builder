@@ -2,7 +2,7 @@
 //https://github.com/bahrie127/flutter_webview4_example/tree/master
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class WebviewPage extends StatefulWidget {
   const WebviewPage({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _WebviewPageState extends State<WebviewPage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://github.com/bahrie127'));
+      ..loadRequest(Uri.parse(LanguageJameet.link_help));
   }
 
   @override

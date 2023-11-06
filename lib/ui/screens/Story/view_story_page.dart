@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_list_stories.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_stories.dart';
-import 'package:jameet_social_network_builder/domain/services/story_services.dart';
-import 'package:jameet_social_network_builder/ui/screens/Story/widgets/animated_line.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/domain/models/response/response_list_stories.dart';
+import 'package:jameet_social_builder/domain/models/response/response_stories.dart';
+import 'package:jameet_social_builder/domain/services/story_services.dart';
+import 'package:jameet_social_builder/ui/screens/Story/widgets/animated_line.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 
 class ViewStoryPage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _ViewStoryPageState extends State<ViewStoryPage> with TickerProviderStateM
 
     _pageController = PageController(viewportFraction: .99);
     _animationController = AnimationController(vsync: this);
-    
+
     _showStory();
     _animationController.addStatusListener(_statusListener);
 
@@ -74,8 +74,8 @@ class _ViewStoryPageState extends State<ViewStoryPage> with TickerProviderStateM
       setState(() => _currentStory++);
 
       _pageController.nextPage(
-        duration: const Duration(milliseconds: 400), 
-        curve: Curves.easeInOutQuint
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOutQuint
       );
       _showStory();
 
@@ -88,8 +88,8 @@ class _ViewStoryPageState extends State<ViewStoryPage> with TickerProviderStateM
     if( _currentStory > 0 ){
       setState(() => _currentStory--);
       _pageController.previousPage(
-        duration: const Duration(milliseconds: 400), 
-        curve: Curves.easeInOutQuint
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOutQuint
       );
       _showStory();
     }
@@ -107,115 +107,115 @@ class _ViewStoryPageState extends State<ViewStoryPage> with TickerProviderStateM
         future: storyServices.getStoryByUSer(widget.storyHome.uidStory),
         builder: (context, snapshot) {
           return !snapshot.hasData
-          ? const ShimmerJameet()
-          : Stack(
-              fit: StackFit.expand,
-              children: [
-                  GestureDetector(
-                    onTapDown: (details){
-                      if( details.globalPosition.dx < size.width / 2 ){
-                        _previousStory();
-                      }else{
-                        _nextStory();
-                      }
-                    } ,
-                    child: PageView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      controller: _pageController,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl: Environment.baseUrl + snapshot.data![index].media
-                        );
-                      },
+              ? const ShimmerJameet()
+              : Stack(
+            fit: StackFit.expand,
+            children: [
+              GestureDetector(
+                onTapDown: (details){
+                  if( details.globalPosition.dx < size.width / 2 ){
+                    _previousStory();
+                  }else{
+                    _nextStory();
+                  }
+                } ,
+                child: PageView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _pageController,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    return CachedNetworkImage(
+                        fit: BoxFit.cover,
+                        imageUrl: Environment.baseUrl + snapshot.data![index].media
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 10.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 30.0),
+
+                    // * Animated Line //
+                    Row(
+                      children: List.generate(snapshot.data!.length, (index) => Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 7.0),
+                            child: AnimatedLineStory(
+                                index: index,
+                                selectedIndex: _currentStory,
+                                animationController: _animationController
+                            ),
+                          )
+                      )
+                      ),
                     ),
-                  ),
 
-                  const SizedBox(height: 10.0),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
+
+                    const SizedBox(height: 20.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 30.0),
-
-                        // * Animated Line //
-                        Row(
-                          children: List.generate(snapshot.data!.length, (index) => Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 7.0),
-                                child: AnimatedLineStory(
-                                  index: index, 
-                                  selectedIndex: _currentStory, 
-                                  animationController: _animationController
-                                ),
-                              )
-                            )
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundImage: NetworkImage(Environment.baseUrl + widget.storyHome.avatar),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextCustom(text: widget.storyHome.username, color: Colors.white ),
+                              const TextCustom(text: LanguageJameet.hours_ago, color: Colors.white70, fontSize: 14)
+                            ],
                           ),
                         ),
+                        IconButton(
+                            onPressed: () => Navigator.pop(context),
+                            icon: const Icon(Icons.close, color: Colors.white, )
+                        )
+                      ],
+                    ),
 
-
-                        const SizedBox(height: 20.0),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundImage: NetworkImage(Environment.baseUrl + widget.storyHome.avatar),
-                            ),
-                            const SizedBox(width: 10.0),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  TextCustom(text: widget.storyHome.username, color: Colors.white ),
-                                  const TextCustom(text: LanguageJameet.hours_ago, color: Colors.white70, fontSize: 14)
-                                ],
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () => Navigator.pop(context), 
-                              icon: const Icon(Icons.close, color: Colors.white, )
-                            )
-                          ],
-                        ),
-                        
-                        const Spacer(),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10.0),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                                  child: Container(
-                                    color: Colors.white.withOpacity(.1),
-                                    child: TextField(
-                                      decoration: InputDecoration(
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                                child: Container(
+                                  color: Colors.white.withOpacity(.1),
+                                  child: TextField(
+                                    decoration: InputDecoration(
                                         contentPadding: const EdgeInsets.only(left: 20.0),
 
                                         hintText: LanguageJameet.write_a_comment,
                                         hintStyle: GoogleFonts.roboto(color: Colors.white)
-                                      ),
                                     ),
                                   ),
                                 ),
-                              )
-                            ),
-                            const SizedBox(width: 10.0),
-                            IconButton(
-                              onPressed: (){}, 
-                              icon: const Icon(Icons.send_rounded, color: Colors.white )
+                              ),
                             )
-                          ],
+                        ),
+                        const SizedBox(width: 10.0),
+                        IconButton(
+                            onPressed: (){},
+                            icon: const Icon(Icons.send_rounded, color: Colors.white )
                         )
                       ],
-                    ),
-                  ),
-                 
-                  
-              ],
-            );
+                    )
+                  ],
+                ),
+              ),
+
+
+            ],
+          );
         },
       ),
     );

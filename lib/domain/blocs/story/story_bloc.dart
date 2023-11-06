@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:jameet_social_network_builder/domain/services/story_services.dart';
+import 'package:jameet_social_builder/domain/services/story_services.dart';
 
 part 'story_event.dart';
 part 'story_state.dart';

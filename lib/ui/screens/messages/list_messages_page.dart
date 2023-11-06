@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:jameet_social_network_builder/ui/helpers/animation_route.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_list_chat.dart';
-import 'package:jameet_social_network_builder/domain/services/chat_services.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/ui/screens/messages/chat_message_page.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/ui/helpers/animation_route.dart';
+import 'package:jameet_social_builder/domain/models/response/response_list_chat.dart';
+import 'package:jameet_social_builder/domain/services/chat_services.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/ui/screens/messages/chat_message_page.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class ListMessagesPage extends StatefulWidget {
 
@@ -27,7 +27,7 @@ class _ListMessagesPageState extends State<ListMessagesPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const TextCustom(text: 'Messages', fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: .8),
+        title: const TextCustom(text: LanguageJameet.messages, fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: .8),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
@@ -120,7 +120,7 @@ class _ListMessagesPageState extends State<ListMessagesPage> {
                                 ],
                               ),
                               const Spacer(),
-                              TextCustom(text: timeago.format(snapshot.data![i].updatedAt, locale: 'en_short'), fontSize: 15 ),
+                              TextCustom(text: timeago.format(snapshot.data![i].updatedAt, locale: 'es_short'), fontSize: 15 ),
                             ],
                           ),
                         ),

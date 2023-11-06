@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
 
 class AnimatedToggle extends StatefulWidget {
 
@@ -37,16 +37,16 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
               width: width,
               height: width * .14,
               decoration: ShapeDecoration(
-                color: const Color(0xffF8F9FA),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(width * .1))
+                  color: const Color(0xffF8F9FA),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(width * .1))
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(widget.values.length, (i) => Padding(
-                      padding: EdgeInsets.symmetric(horizontal: width * .1),
-                      child: TextCustom(text: widget.values[i], fontSize: width * .05,),
-                    )
-                )
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(widget.values.length, (i) => Padding(
+                    padding: EdgeInsets.symmetric(horizontal: width * .1),
+                    child: TextCustom(text: widget.values[i], fontSize: width * .05,),
+                  )
+                  )
               ),
             ),
           ),
@@ -54,7 +54,7 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
           BlocBuilder<UserBloc, UserState>(
             buildWhen: (previous, current) => previous != current,
             builder: (_, state) => AnimatedAlign(
-              alignment: state.isPhotos ? Alignment.centerLeft : Alignment.centerRight, 
+              alignment: state.isPhotos ? Alignment.centerLeft : Alignment.centerRight,
               duration: const Duration(milliseconds: 350),
               curve: Curves.ease,
               child: Padding(
@@ -67,9 +67,9 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
                     color: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(width * .1)),
                   ),
-                  child: TextCustom(text: state.isPhotos 
-                    ? widget.values[0]
-                    : widget.values[1],
+                  child: TextCustom(text: state.isPhotos
+                      ? widget.values[0]
+                      : widget.values[1],
                     fontSize: width * .05,
                     fontWeight: FontWeight.w500,
                   ),

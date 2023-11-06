@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/domain/blocs/post/post_bloc.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/domain/blocs/post/post_bloc.dart';
 
 class AppPermission {
 

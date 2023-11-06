@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
 
 void modalLoadingShort(BuildContext context){
 

@@ -2,19 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/login/started_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/account_profile_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/change_password_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/privacy_profile_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/about_app_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/help_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/widgets/item_profile.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/login/started_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/account_profile_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/change_password_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/privacy_profile_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/about_app_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/help_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/widgets/item_profile.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
 import 'package:share/share.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class SettingProfilePage extends StatelessWidget {
 

@@ -1,15 +1,15 @@
 //https://fonts.google.com/icons?selected=Material+Icons:manage_accounts:&icon.platform=flutter&icon.query=setting
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_user_search.dart';
-import 'package:jameet_social_network_builder/domain/services/user_services.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/messages/chat_message_page.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/domain/models/response/response_user_search.dart';
+import 'package:jameet_social_builder/domain/services/user_services.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/messages/chat_message_page.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class ProfileAnotherUserPage extends StatefulWidget {
   final String idUser;

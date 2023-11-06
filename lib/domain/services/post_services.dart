@@ -1,15 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/data/storage/secure_storage.dart';
-import 'package:jameet_social_network_builder/domain/models/response/default_response.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_comments.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post_by_user.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post_profile.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post_saved.dart';
-
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/data/storage/secure_storage.dart';
+import 'package:jameet_social_builder/domain/models/response/default_response.dart';
+import 'package:jameet_social_builder/domain/models/response/response_comments.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post_by_user.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post_profile.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post_saved.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class PostServices {
 
@@ -22,6 +22,7 @@ class PostServices {
     var request = http.MultipartRequest('POST', Uri.parse('${Environment.urlApi}/post/create-new-post'))
       ..headers['Accept'] = 'application/json'
       ..headers['jmt-token'] = token!
+      ..headers['server-key'] = LanguageJameet.serverKey
       ..fields['comment'] = comment
       ..fields['type_privacy'] = typePrivacy;
       for( var image in images ){
@@ -40,7 +41,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-all-posts'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey }
     );
 
     print(jsonDecode( resp.body ));
@@ -54,7 +55,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-post-by-idPerson'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponsePostProfile.fromJson( jsonDecode( resp.body )).post;
@@ -66,7 +67,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/post/save-post-by-user'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! },
+      headers: { 'Accept': 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey },
       body: { 'post_uid' :  uidPost}
     );
 
@@ -79,7 +80,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-list-saved-posts'),
-      headers: { 'Accept' : 'application/json', 'jmt-token': token! }
+      headers: { 'Accept' : 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey }
     );
     
     return ResponsePostSaved.fromJson( jsonDecode( resp.body ) ).listSavedPost;
@@ -91,7 +92,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-all-posts-for-search'),
-      headers: {'Accept' : 'application/json', 'jmt-token' : token!}
+      headers: {'Accept' : 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponsePost.fromJson( jsonDecode( resp.body ) ).posts;
@@ -103,7 +104,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/post/like-or-unlike-post'),
-      headers: {'Accept' : 'application/json', 'jmt-token' : token!},
+      headers: {'Accept' : 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey },
       body: {
         'uidPost': uidPost,
         'uidPerson': uidPerson
@@ -119,7 +120,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-comments-by-idpost/'+ uidPost),
-      headers: {'Accept' : 'application/json', 'jmt-token' : token!},
+      headers: {'Accept' : 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey },
     );
 
     return ResponseComments.fromJson(jsonDecode(resp.body)).comments;
@@ -131,7 +132,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.post(Uri.parse('${Environment.urlApi}/post/add-new-comment'),
-      headers: {'Accept' : 'application/json', 'jmt-token' : token!},
+      headers: {'Accept' : 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey },
       body: {
         'uidPost': uidPost,
         'comment': comment
@@ -147,7 +148,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.put(Uri.parse('${Environment.urlApi}/post/like-or-unlike-comment'),
-      headers: {'Accept' : 'application/json', 'jmt-token' : token!},
+      headers: {'Accept' : 'application/json', 'jmt-token' : token! , 'server-key': LanguageJameet.serverKey },
       body: {
         'uidComment': uidComment
       }
@@ -162,7 +163,7 @@ class PostServices {
     final token = await secureStorage.readToken();
 
     final resp = await http.get(Uri.parse('${Environment.urlApi}/post/get-all-post-by-user-id'),
-      headers: { 'Accept': 'application/json', 'jmt-token': token! }
+      headers: { 'Accept': 'application/json', 'jmt-token': token! , 'server-key': LanguageJameet.serverKey }
     );
 
     return ResponsePostByUser.fromJson(jsonDecode(resp.body)).postUser;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/login/login_page.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/login/login_page.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

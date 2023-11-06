@@ -36,7 +36,6 @@ class BottomNavigationJameet extends StatelessWidget {
             isReel: isReel,
             onPressed: () => Navigator.pushAndRemoveUntil(context, routeSlide(page: const SearchPage()), (_) => false),
           ),
-          /*
           _ItemButtom(
             i: 3,
             index: index,
@@ -45,7 +44,6 @@ class BottomNavigationJameet extends StatelessWidget {
             iconString: 'assets/svg/movie_reel.svg',
             onPressed: () => Navigator.push(context, routeSlide(page: const ReelHomeScreen())),
           ),
-           */
           _ItemButtom(
             i: 4,
             index: index,

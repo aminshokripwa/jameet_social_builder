@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/data/storage/secure_storage.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/data/storage/secure_storage.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
+import 'package:jameet_social_builder/localization_helper.dart';
 
 part 'chat_event.dart';
 part 'chat_state.dart';
@@ -29,7 +30,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       'autoConnect': true,
       'forceNew': true,
       'extraHeaders': {
-        'xxx-token': token
+        'jmt-token': token,
+        'server-key': LanguageJameet.serverKey
       }
     });
 

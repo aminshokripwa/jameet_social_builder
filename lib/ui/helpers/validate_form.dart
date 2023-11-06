@@ -1,5 +1,5 @@
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 final validatedEmail = MultiValidator([
   RequiredValidator(errorText: LanguageJameet.email_is_required),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
 
 
 class ChatMessage extends StatelessWidget {
@@ -31,8 +31,8 @@ class ChatMessage extends StatelessWidget {
         sizeFactor: CurvedAnimation(parent: animationController, curve: Curves.easeOut),
         child: BlocBuilder<UserBloc, UserState>(
           buildWhen: (previous, current) => previous != current,
-          builder: (context, state) 
-            => state.user != null 
+          builder: (context, state)
+            => state.user != null
             ? Container(
                 child: uidUser == state.user!.uid
                 ? _myMessages()
@@ -63,7 +63,7 @@ class ChatMessage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0)
               ),
             ),
-            
+
           ],
         ),
       ),

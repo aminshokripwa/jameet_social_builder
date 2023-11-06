@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_list_messages.dart';
-import 'package:jameet_social_network_builder/domain/services/chat_services.dart';
-import 'package:jameet_social_network_builder/ui/screens/messages/widgets/chat_message.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/domain/models/response/response_list_messages.dart';
+import 'package:jameet_social_builder/domain/services/chat_services.dart';
+import 'package:jameet_social_builder/ui/screens/messages/widgets/chat_message.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class ChatMessagesPage extends StatefulWidget {
 

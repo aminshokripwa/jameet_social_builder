@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:jameet_social_network_builder/data/storage/secure_storage.dart';
-import 'package:jameet_social_network_builder/domain/services/auth_services.dart';
+import 'package:jameet_social_builder/data/storage/secure_storage.dart';
+import 'package:jameet_social_builder/domain/services/auth_services.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

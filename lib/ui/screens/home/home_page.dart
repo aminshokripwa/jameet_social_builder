@@ -3,27 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/ui/screens/addPost/add_post_page.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/ui/screens/addPost/add_post_page.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:jameet_social_network_builder/domain/models/response/response_stories.dart';
-import 'package:jameet_social_network_builder/domain/services/story_services.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/Story/add_story_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/Story/view_story_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/comments/comments_post_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/messages/list_messages_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/notifications/notifications_page.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post.dart';
-import 'package:jameet_social_network_builder/domain/services/post_services.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/domain/blocs/post/post_bloc.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/profile_another_user_page.dart';
+import 'package:jameet_social_builder/domain/models/response/response_stories.dart';
+import 'package:jameet_social_builder/domain/services/story_services.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/Story/add_story_page.dart';
+import 'package:jameet_social_builder/ui/screens/Story/view_story_page.dart';
+import 'package:jameet_social_builder/ui/screens/comments/comments_post_page.dart';
+import 'package:jameet_social_builder/ui/screens/messages/list_messages_page.dart';
+import 'package:jameet_social_builder/ui/screens/notifications/notifications_page.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post.dart';
+import 'package:jameet_social_builder/domain/services/post_services.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/domain/blocs/post/post_bloc.dart';
+import 'package:jameet_social_builder/ui/screens/profile/profile_another_user_page.dart';
 import 'package:share/share.dart';
 import 'package:dashed_circle/dashed_circle.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -417,8 +417,9 @@ class _ListWithoutPosts extends StatelessWidget {
 
 
   final List<String> svgPosts = [
+    'assets/svg/without-posts-home-org.svg',
+    'assets/svg/add-new-post.svg',
     'assets/svg/without-posts-home.svg',
-    'assets/svg/mobile-new-posts.svg',
   ];
 
   @override

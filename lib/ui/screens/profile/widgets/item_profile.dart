@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
 
 class ItemProfile extends StatelessWidget {
 

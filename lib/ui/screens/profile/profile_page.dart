@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:jameet_social_network_builder/domain/blocs/blocs.dart';
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post_profile.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_post_saved.dart';
-import 'package:jameet_social_network_builder/domain/services/post_services.dart';
-import 'package:jameet_social_network_builder/ui/components/animted_toggle.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/followers_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/following_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/list_photos_profile_page.dart';
-import 'package:jameet_social_network_builder/ui/screens/profile/saved_posts_page.dart';
-import 'package:jameet_social_network_builder/ui/themes/colors_jameet.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/domain/blocs/blocs.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post_profile.dart';
+import 'package:jameet_social_builder/domain/models/response/response_post_saved.dart';
+import 'package:jameet_social_builder/domain/services/post_services.dart';
+import 'package:jameet_social_builder/ui/components/animted_toggle.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/ui/screens/profile/followers_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/following_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/list_photos_profile_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/saved_posts_page.dart';
+import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class ProfilePage extends StatelessWidget {
 

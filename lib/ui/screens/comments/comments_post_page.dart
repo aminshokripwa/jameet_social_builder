@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jameet_social_network_builder/domain/blocs/post/post_bloc.dart';
-import 'package:jameet_social_network_builder/domain/models/response/response_comments.dart';
-import 'package:jameet_social_network_builder/domain/services/post_services.dart';
-import 'package:jameet_social_network_builder/ui/helpers/helpers.dart';
+import 'package:jameet_social_builder/domain/blocs/post/post_bloc.dart';
+import 'package:jameet_social_builder/domain/models/response/response_comments.dart';
+import 'package:jameet_social_builder/domain/services/post_services.dart';
+import 'package:jameet_social_builder/ui/helpers/helpers.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:jameet_social_network_builder/data/env/env.dart';
-import 'package:jameet_social_network_builder/ui/widgets/widgets.dart';
-import 'package:jameet_social_network_builder/localization_helper.dart';
+import 'package:jameet_social_builder/data/env/env.dart';
+import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 class CommentsPostPage extends StatefulWidget {
 
