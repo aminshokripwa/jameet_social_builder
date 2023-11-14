@@ -9,6 +9,8 @@ import 'package:jameet_social_builder/ui/screens/profile/account_profile_page.da
 import 'package:jameet_social_builder/ui/screens/profile/change_password_page.dart';
 import 'package:jameet_social_builder/ui/screens/profile/privacy_profile_page.dart';
 import 'package:jameet_social_builder/ui/screens/profile/about_app_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/term_app_page.dart';
+import 'package:jameet_social_builder/ui/screens/profile/privacy_app_page.dart';
 import 'package:jameet_social_builder/ui/screens/profile/help_page.dart';
 import 'package:jameet_social_builder/ui/screens/profile/widgets/item_profile.dart';
 import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
@@ -99,6 +101,16 @@ class SettingProfilePage extends StatelessWidget {
               text: LanguageJameet.about,
               icon: Icons.info_outline_rounded,
                 onPressed: () => Navigator.push(context, routeSlide(page: const AboutAppPage()))
+            ),
+            ItemProfile(
+              text: LanguageJameet.terms_of_use,
+              icon: Icons.info_outline_rounded,
+                onPressed: () => Navigator.push(context, routeSlide(page: const TermAppPage()))
+            ),
+            ItemProfile(
+              text: LanguageJameet.privacy_policy,
+              icon: Icons.info_outline_rounded,
+                onPressed: () => Navigator.push(context, routeSlide(page: const PrivacyAppPage()))
             ),
             /*
             const SizedBox(height: 20.0),

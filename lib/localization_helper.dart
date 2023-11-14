@@ -1,7 +1,7 @@
 
 class LanguageJameet {
 
-  //Generate this key in your Jameet(JMT) panel https://jammet.com/my_community
+  //Generate this key in your Jameet(JMT) panel https://jameet.com/your_app
   static const serverKey = 'f9261c25-9e7e-4df8-ae1b-95f430227541';
 
   ///////// ------- Translatable texts ------- \\\\\\\\\\\
@@ -61,6 +61,8 @@ class LanguageJameet {
   static const Send = 'Send';
   static const about = 'About';
   static const help = 'Help';
+  static const terms_of_use = 'Terms of use';
+  static const privacy_policy = 'Privacy policy';
   static const published = 'Published';
   static const friends = 'Friends';
   static const following = 'Following';
@@ -126,7 +128,9 @@ class LanguageJameet {
   static const switch_to_public = 'Switch to Public';
 
 ///////// ------- Translatable texts ------- \\\\\\\\\\\
-  static const link_help = 'https://github.com/bahrie127';
-  static const link_about = 'https://github.com/bahrie127';
+  static const link_help = 'https://jameet.com/help';
+  static const link_about = 'https://jameet.com/about';
+  static const link_terms_of_use = 'https://jameet.com/terms_of_use';
+  static const link_privacy_policy = 'https://jameet.com/privacy_policy';
 
 }
