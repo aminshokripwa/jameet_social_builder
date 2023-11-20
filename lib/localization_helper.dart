@@ -18,11 +18,14 @@ class LanguageJameet {
   static const no_results_for = 'No results for';
   static const creat_posts = 'Creating posts...';
   static const post_created = 'Post created!';
+  static const who_can_comment = 'Who can comment?';
+  static const who_can_comment_on_your_post = 'Select who can comment on your post.';
   static const add_a_comment = 'Add a comment';
   static const the_field_is_required = 'The field is required';
   static const everyone_can_comment = 'Everyone can comment';
   static const only_fllowers = 'Only followers';
   static const nobody = 'Nobody';
+  static const public = 'Public';
   static const no_media_selected = 'No media selected';
   static const post = 'Post';
   static const comments = 'Comments';

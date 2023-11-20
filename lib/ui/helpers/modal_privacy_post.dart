@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jameet_social_builder/domain/blocs/post/post_bloc.dart';
 import 'package:jameet_social_builder/ui/themes/colors_jameet.dart';
 import 'package:jameet_social_builder/ui/widgets/widgets.dart';
+import 'package:jameet_social_builder/localization_helper.dart';
 
 modalPrivacyPost(BuildContext context) {
 
@@ -39,11 +40,11 @@ modalPrivacyPost(BuildContext context) {
             ),
             const SizedBox(height: 15.0),
             const Center(
-                child: TextCustom(text: 'Who can comment?', fontWeight: FontWeight.w500 )
+                child: TextCustom(text: LanguageJameet.who_can_comment, fontWeight: FontWeight.w500 )
             ),
 
             const SizedBox(height: 15.0),
-            const TextCustom(text: 'Select who can comment on your post.', fontSize: 16, color: Colors.grey, maxLines: 2),
+            const TextCustom(text: LanguageJameet.who_can_comment_on_your_post, fontSize: 16, color: Colors.grey, maxLines: 2),
 
             const SizedBox(height: 20.0),
             InkWell(
@@ -63,7 +64,7 @@ modalPrivacyPost(BuildContext context) {
                     ],
                   ),
                   const SizedBox(width: 10.0),
-                  const TextCustom(text: 'Todos', fontSize: 17,)
+                  const TextCustom(text: LanguageJameet.public, fontSize: 17,)
                 ],
               ),
             ),
@@ -85,7 +86,7 @@ modalPrivacyPost(BuildContext context) {
                     ],
                   ),
                   const SizedBox(width: 10.0),
-                  const TextCustom(text: 'Followers', fontSize: 17,)
+                  const TextCustom(text: LanguageJameet.followers, fontSize: 17,)
                 ],
               ),
             ),
@@ -107,7 +108,7 @@ modalPrivacyPost(BuildContext context) {
                     ],
                   ),
                   const SizedBox(width: 10.0),
-                  const TextCustom(text: 'Nobody', fontSize: 17,)
+                  const TextCustom(text: LanguageJameet.nobody, fontSize: 17,)
                 ],
               ),
             ),
